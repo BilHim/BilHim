@@ -103,6 +103,7 @@ a:focus {
 }
 
 #menu-button {
+    display: none;
     float: right;
     border: 0;
     padding: 0.425rem;
@@ -596,5 +597,8 @@ footer a:after {
     }
     .nav {
         display: none;
+    }
+    #menu-button{
+        display: initial;
     }
 }
