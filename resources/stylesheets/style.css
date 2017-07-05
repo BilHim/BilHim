@@ -601,4 +601,7 @@ footer a:after {
     #menu-button{
         display: initial;
     }
+    h2#address {
+        font-size: 14px;
+    }
 }
