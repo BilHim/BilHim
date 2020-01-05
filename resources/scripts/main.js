@@ -1,68 +1,50 @@
-$(function() {
+// var perc = document.getElementById('perc');
+// var time = 0;
 
-    // Add smooth scrolling to all page links
-    $("a").on('click', function(event) {
+// function updatePerc(){
+//     var p = 100*(1-2**(-time/100));
+//     perc.innerHTML = Math.floor(p)+'%';
+//     time++;
+// }
 
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
+// setInterval(updatePerc, 50)
 
-            // Store hash
-            var hash = this.hash;
+// window.onload = function() {
+//     clearInterval()
+//     perc.innerHTML = '100%';
+//     this.setTimeout(function(){
+//         document.getElementById('loading').className = '';
+//     }, 500)
+// }        
 
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (1000) specifies the number of milliseconds it takes to scroll to the specified area
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 1000, function() {
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-            });
-        } // End if
-    });
-
-    // Add background
-    $('.image-bg').each(function() {
-        $(this).parent().css('background-image', 'url("' + $(this).attr('src') + '")')
-    })
-
-    // Show or hide navbar when page is scrolled
-
-    var lastScrollTop = 0; // Variable to store scroll position
-
-    $(window).scroll(function() {
-
-        if ($(window).scrollTop() > $(window).height()) {
-
-            $(".header").addClass("fixed");
-
-            if ($(window).scrollTop() > lastScrollTop) {
-                // Scrolling Down
-                $(".header").addClass("hide");
-            } else {
-                // Scrolling Up
-                $(".header").removeClass("hide");
-            }
-
-        } else {
-            $(".header").removeClass("fixed hide");
-        }
-
-        // Save ScrollTop
-        lastScrollTop = $(window).scrollTop();
-
-    });
-
-    $("#menu-button").click(function() {
-        $("body").toggleClass("menu-triggered");
-    });
-
-    $(".nav a").click(function() {
-        $("body").removeClass("menu-triggered");
-    });
+var sections = document.getElementsByTagName("section");
+var winHeight, progress, sectionUnit, sectionCurrent;
 
 
+function show(n){
+    for (var i=0; i<sections.length; i++){
+        sections[i].className = "";
+    }
+    sections[n].className = "active";
+    
+}
 
-});
+function load() {
+    winHeight = window.innerHeight*sections.length;
+    document.body.style.height = winHeight + "px";
+
+    sectionUnit = 1/(sections.length-1);
+
+    window.scrollTo(0, 0);
+}
+
+function scroll() {
+    progress = window.scrollY / (winHeight - window.innerHeight);
+    sectionCurrent = Math.round(progress/sectionUnit);
+    show(sectionCurrent);
+    console.log(sectionCurrent)
+}
+
+window.onload = load;
+
+window.onscroll = scroll;
