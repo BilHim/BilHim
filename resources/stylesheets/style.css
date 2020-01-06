@@ -52,6 +52,20 @@ section.active {
     opacity: 1;
 }
 
+section .container {
+    transition: all 1s cubic-bezier(0.25, 0.25, 0, 1);
+    transform: perspective(20px);
+}
+
+section:not(.active):nth-of-type(odd) .container{
+    transform: perspective(20px) rotateX(-1deg) translateY(-20rem);
+}
+
+section:not(.active):nth-of-type(even) .container{
+    transform: perspective(20px) rotateX(1deg) translateY(20rem);
+}
+
+
 #loading.active {
     z-index:999;
 }
