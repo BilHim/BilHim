@@ -35,16 +35,17 @@
 
     <div class="scroll">Scroll</div>
 
-    <section id="hero" class="active">
-        <div class="container">
+    <section id="hero">
+        <canvas id="canvas"></canvas>
+        <div style="display: none" class="container fallback">
             <span class="name">Bilal Himite</span>
-            <span>Developer • Web designer</span>
+            <span>Engineering Student • Developer • Web designer</span>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
-            <p>I'm a self-taught developer and web designer based in <a href="https://wikitravel.org/en/Morocco">Morocco</a>.</p>
+            <p>I'm an engineering student and a self-taught developer and web designer<br> based in <a href="https://wikitravel.org/en/Morocco">Morocco</a>.</p>
         </div>
     </section>
 
@@ -76,7 +77,8 @@
         </div>
     </section>
 
-    <section id="gallery">
+    <!-- To update when better projects are available -->
+    <!-- <section id="gallery">
         <div class="item">
             <img src="resources/images/onmag-bilhim.blogspot.com.png" alt="OnMag Blogger Template">
             <div class="card">
@@ -98,7 +100,7 @@
             </div>
         </div>
         
-    </section>
+    </section> -->
 
     <section id="contact">
         <div class="container">
@@ -109,7 +111,7 @@
                 <li><a href="mailto:mail.bilalhimite@gmail.com"><i class="fas fa-envelope"></i></a></li>
             </ul>
             <p>Just click the button!</p>
-            <button>Contact Me!</button>
+            <a class="button" href="mailto:mail.bilalhimite@gmail.com">Contact Me!</a>
         </div>
     </section>
     
@@ -117,6 +119,9 @@
         <p>&copy; 2020 Made with <i class="fas fa-heart"></i> by Bilal Himite.</p>
     </footer>
     
+    <script src="resources/scripts/perlin.js"></script>
+    <script src="resources/scripts/particle.js"></script>
+    <script src="resources/scripts/app.js"></script>
 </body>
 
 </html>
