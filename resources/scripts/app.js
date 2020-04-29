@@ -105,15 +105,18 @@ var app = function() {
         }
 
         // Draw text on screen
-        if (config.iter > start + 0.075){
+        config.ctx.fillStyle = `rgba(255,255,255, 0.001)`;
+
+        if (config.iter > start + 0.1){
             config.ctx.fillStyle = `rgba(255,255,255, 0.2)`;
-        
-            config.ctx.font = `bold ${config.mainFontSize}px/1 '${config.mainFont}'`;
-            config.ctx.fillText(config.mainText, config.width/2, config.height/2 - config.textGap/3);
-            
-            config.ctx.font = `${config.secondaryFontSize}px/1 '${config.secondaryFont}'`;
-            config.ctx.fillText(config.secondaryText, config.width/2, config.height/2 + config.textGap*2/3);    
         }
+
+        config.ctx.font = `bold ${config.mainFontSize}px/1 '${config.mainFont}'`;
+        config.ctx.fillText(config.mainText, config.width/2, config.height/2 - config.textGap/3);
+        
+        config.ctx.font = `${config.secondaryFontSize}px/1 '${config.secondaryFont}'`;
+        config.ctx.fillText(config.secondaryText, config.width/2, config.height/2 + config.textGap*2/3);    
+        
         
         // Increment noise z-axis
         config.iter += config.iterSpeed;
